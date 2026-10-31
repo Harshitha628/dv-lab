@@ -1,0 +1,21 @@
+library(tidyr)
+library(ggplot2)
+
+students <- data.frame(
+  student = c("reethu", "deepu", "krishna", "priya", "raja"),
+  math = c(99, 98, 97, 96, 95),
+  science = c(100, 68, 79, 89, 90),
+  english = c(56, 78, 90, 78, 99),
+  hours = c(1, 2, 3, 4, 5)
+)
+
+head(students)
+a_grades<-c(
+  math=sum(students$math >= 85),
+  science=sum(students$science >= 85),
+  english=sum(students$english >= 85)
+)
+pie(a_grades,
+    main ="A-grade distribution by subject",
+    col=c("#3498db","#2ecc71","#e74c3c"),
+    labels=paste(names(a_grades),"\n",a_grades,"students"))
